@@ -28,16 +28,19 @@
 % set type area
 \RequirePackage[paper=a4paper,
                 left=2.5cm,
-                right=4cm,
+                right=2.5cm,
                 top=4cm,
                 marginparsep=1cm,
                 marginparwidth=3cm,
                 bottom=2cm,
                 headsep=1.5cm,
-                footskip=1cm]{geometry}
+                footskip=1cm,
+                head=33.0pt]{geometry}
+
+\setlength{\footheight}{17.25pt}
 
 % headings witout numbers
-\RequirePackage{scrpage2}
+\RequirePackage{scrlayer-scrpage}
 \KOMAoption{headings}{normal}
 \setcounter{secnumdepth}{0}
 
@@ -73,7 +76,6 @@
 % content of head and foot
 \providecommand{\sheetname}{Übungszettel}
 \newcommand{\@sheettext}{}
-\pagestyle{scrheadings}
 \clearscrheadfoot
 \automark{section}
 \newcommand{\setgroup}[1] {\ihead{#1}}
@@ -108,9 +110,11 @@
 }
 
 % layout of head and foot
-\setheadtopline{1pt}
-\setheadsepline{0.2pt}
-\setfootwidth{textwithmarginpar}
+
+% new version
+\KOMAoption{headtopline}{1pt}
+\KOMAoption{headsepline}{0.2pt}
+\setfootwidth{head}
 \setkomafont{pageheadfoot}{\small\sffamily}
 \setkomafont{pagefoot}{\large\sffamily}
 \setkomafont{headtopline}{\color{maincolor}}
